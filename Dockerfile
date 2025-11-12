@@ -7,10 +7,10 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-RUN wget "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v${OTEL_VERSION}/otelcol-contrib_${OTEL_VERSION}_linux_arm64.tar.gz" && \
-    tar -xzf "otelcol-contrib_${OTEL_VERSION}_linux_arm64.tar.gz" && \
+RUN wget "https://github.com/open-telemetry/opentelemetry-collector-releases/releases/download/v${OTEL_VERSION}/otelcol-contrib_${OTEL_VERSION}_linux_amd64.tar.gz" && \
+    tar -xzf "otelcol-contrib_${OTEL_VERSION}_linux_amd64.tar.gz" && \
     mv "otelcol-contrib" /usr/local/bin/otelcol-contrib && \
-    rm "otelcol-contrib_${OTEL_VERSION}_linux_arm64.tar.gz"
+    rm "otelcol-contrib_${OTEL_VERSION}_linux_amd64.tar.gz"
 
 RUN chmod +x /usr/local/bin/otelcol-contrib
 
