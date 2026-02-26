@@ -3,7 +3,7 @@ FROM debian:13-slim
 ARG TARGETPLATFORM
 ARG TARGETARCH=${TARGETPLATFORM#linux/}
 
-ARG OTEL_VERSION=0.140.0
+ARG OTEL_VERSION=0.146.1
 
 RUN apt-get update && \
     apt-get install -y systemd wget && \
@@ -17,8 +17,8 @@ RUN wget "https://github.com/open-telemetry/opentelemetry-collector-releases/rel
 
 RUN chmod +x /usr/local/bin/otelcol-contrib
 
-RUN groupadd --system --gid 10001 otel && \
-    useradd --system --uid 10001 --gid otel otel
+RUN groupadd --system --gid 35000 otel && \
+    useradd --system --uid 35000 --gid otel otel
 
 RUN usermod -aG systemd-journal otel
 
